@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Main from "./Page/Main";
+import OurCoffee from "./Page/OurCoffee";
+import ForYourPleasure from "./Page/ForYourPleasure";
+import CoffeeCatalog from "./components/CoffeeCatalog";
 
 function App() {
+  const invariant = createBrowserRouter([
+    {
+      path: "/",
+      element: <Main></Main>,
+    },
+    {
+      path: "OurCoffee",
+      element: <OurCoffee></OurCoffee>,
+    },
+    {
+      path: "ForYourPleasure",
+      element: <ForYourPleasure></ForYourPleasure>,
+    },
+    {
+      path: "DataJson",
+      element: <CoffeeCatalog />,
+    },
+  ]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RouterProvider router={invariant} />
     </div>
   );
 }
