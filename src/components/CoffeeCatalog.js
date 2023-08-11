@@ -50,10 +50,7 @@ function CoffeeCatalog() {
   //     })}
 
   //     {/* <h2>{fruit[0]}</h2>
-  //     <h2>{fruit[1]}</h2>
-  //     <h2>{fruit[2]}</h2>
-  //     <h2>{fruit[3]}</h2>
-  //     <h2>{fruit[4]}</h2> */}
+  //
   //   </>
   // );
 
