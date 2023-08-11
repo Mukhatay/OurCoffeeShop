@@ -1,5 +1,7 @@
 import React from "react";
 import TitleWithDescribe from "../components/TitleWithDescribe";
+import CoffeeCatalog from "../components/CoffeeCatalog";
+import DataJson from "../db.json";
 
 function Main() {
   return (
@@ -16,6 +18,7 @@ horrible but confined day end marriage. Eagerness furniture set preserved far
 recommend. Did even but nor are most gave hope. Secure active living depend son
 repair day ladies now.`}
       ></TitleWithDescribe>
+      <CoffeeCatalog DataToRender={DataJson.bestsellers} />
     </div>
   );
 }

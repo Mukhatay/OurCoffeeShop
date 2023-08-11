@@ -2,6 +2,7 @@ import React from "react";
 import ImgTitleWithDescribe from "../components/ImgTitleWithDescribe";
 import CoffeeGirl from "../img/coffee_girl.jpg";
 import CoffeeCatalog from "../components/CoffeeCatalog";
+import DataJson from "../db.json";
 
 function OurCoffee() {
   return (
@@ -14,6 +15,7 @@ so questions.As greatly removed calling pleased improve an. Last ask him cold fe
 met spot shy want. Children me laughing we prospect answered followed. At it went
 is song that held help face`}
       ></ImgTitleWithDescribe>
+      <CoffeeCatalog DataToRender={DataJson.coffee} />
     </div>
   );
 }

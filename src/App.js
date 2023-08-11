@@ -18,10 +18,6 @@ function App() {
       path: "ForYourPleasure",
       element: <ForYourPleasure></ForYourPleasure>,
     },
-    {
-      path: "DataJson",
-      element: <CoffeeCatalog />,
-    },
   ]);
   return (
     <div className="App">
