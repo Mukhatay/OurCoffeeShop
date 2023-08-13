@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "./Page/Main";
 import OurCoffee from "./Page/OurCoffee";
 import ForYourPleasure from "./Page/ForYourPleasure";
-import CoffeeCatalog from "./components/CoffeeCatalog";
 
 function App() {
   const invariant = createBrowserRouter([

@@ -2,7 +2,6 @@ import React from "react";
 import ImgTitleWithDescribe from "../components/ImgTitleWithDescribe";
 import CupOfCoffee from "../img/CupOfCoffee.png";
 import CoffeeCatalog from "../components/CoffeeCatalog";
-import { json } from "react-router-dom";
 import DataJson from "../db.json";
 
 function ForYourPleasure() {

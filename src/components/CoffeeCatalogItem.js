@@ -1,14 +1,12 @@
 import React from "react";
-import coffeeCatalogPictures from "../img/CoffeeCatalog.png";
-import DataJson from "../db.json";
 
-function CoffeeCatalogItem({ price, country, url, name }) {
+function CoffeeCatalogItem({ name, country, url, price }) {
   return (
     <div>
       <img src={url} />
-      <p>Our Coffee name:{name}</p>
-      <p>From Country:{country}</p>
-      <p>Price:{price}$</p>
+      <p>{name}</p>
+      <p>{country}</p>
+      <p>{price}</p>
     </div>
   );
 }
