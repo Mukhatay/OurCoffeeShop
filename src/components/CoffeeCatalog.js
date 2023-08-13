@@ -1,6 +1,7 @@
 import React from "react";
 import CoffeeCatalogItem from "./CoffeeCatalogItem";
 import BestSellersItem from "./BestSellersItem";
+import { Link } from "react-router-dom";
 
 function CoffeeCatalog({ DataToRender }) {
   return (
@@ -9,12 +10,14 @@ function CoffeeCatalog({ DataToRender }) {
         if (item.country) {
           return (
             <>
-              <CoffeeCatalogItem
-                url={item.url}
-                name={item.name}
-                country={item.country}
-                price={item.price}
-              />
+              <Link to={"/OurCoffee/" + item.id}>
+                <CoffeeCatalogItem
+                  url={item.url}
+                  name={item.name}
+                  country={item.country}
+                  price={item.price}
+                />
+              </Link>
             </>
           );
         } else {
