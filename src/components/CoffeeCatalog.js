@@ -22,11 +22,13 @@ function CoffeeCatalog({ DataToRender }) {
           );
         } else {
           return (
-            <BestSellersItem
-              url={item.url}
-              name={item.name}
-              country={item.country}
-            />
+            <Link to={"/ForYourPleasure/" + item.id}>
+              <BestSellersItem
+                url={item.url}
+                name={item.name}
+                price={item.price}
+              />
+            </Link>
           );
         }
       })}

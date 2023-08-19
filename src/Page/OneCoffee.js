@@ -14,10 +14,9 @@ function OneCoffee() {
   })[0];
   console.log(OneCoffeeData);
   // console.log(DataJson);
-  // console.log(qweryParams);
   return (
     <div>
-      <h2>About It</h2>
+      <h2>About it</h2>
       <img src={Logo} alt="Beans logo" />
       <img src={OneCoffeeData.url} />
       <p>Country:{OneCoffeeData.country}</p>

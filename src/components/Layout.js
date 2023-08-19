@@ -6,19 +6,19 @@ function Layout() {
     <div>
       <header>
         <nav>
-          <Link to={"/"}>Main page</Link>
-          <Link to={"OurCoffee"}>Our Coffee</Link>
-          <Link to={"ForYourPleasure"}>For your Pleasure</Link>
+          <Link to={"/"}> Main Page</Link>
+          <Link to={"OurCoffee"}> Our Coffee</Link>
+          <Link to={"ForYourPleasure"}> For your pleasure</Link>
         </nav>
       </header>
       <Outlet />
       <footer>
         <nav>
-          <Link to={"/"}>Main page</Link>
-          <Link to={"OurCoffee"}>Our Coffee</Link>
-          <Link to={"ForYourPleasure"}>For your Pleasure</Link>
+          <Link to={"/"}> Main Page</Link>
+          <Link to={"OurCoffee"}> Our Coffee</Link>
+          <Link to={"ForYourPleasure"}> For your pleasure</Link>
         </nav>
-        <p>Our Number:7557</p>
+        <p>Our Number: 7577</p>
       </footer>
     </div>
   );

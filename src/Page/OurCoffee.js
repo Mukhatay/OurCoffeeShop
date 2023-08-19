@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import ImgTitleWithDescribe from "../components/ImgTitleWithDescribe";
 import CoffeeGirl from "../img/coffee_girl.jpg";
 import CoffeeCatalog from "../components/CoffeeCatalog";
 import DataJson from "../db.json";
+import FilterButtons from "../components/FilterButtons";
 
 function OurCoffee() {
+  const [stateArrayButton, setStateArrayButton] = useState([]);
+  const [inputState, setInputState] = useState("");
   return (
     <div>
+      <input
+        type="text"
+        value={inputState}
+        onChange={(event) => {
+          setInputState(event.target.value);
+        }}
+      />
+      <FilterButtons
+        arrayButton={stateArrayButton}
+        setArrayButton={setStateArrayButton}
+      />
       <ImgTitleWithDescribe
         imgOfCoffee={CoffeeGirl}
         title={"About our beans"}
@@ -15,7 +29,19 @@ so questions.As greatly removed calling pleased improve an. Last ask him cold fe
 met spot shy want. Children me laughing we prospect answered followed. At it went
 is song that held help face`}
       ></ImgTitleWithDescribe>
-      <CoffeeCatalog DataToRender={DataJson.coffee} />
+      <CoffeeCatalog
+        DataToRender={
+          stateArrayButton.length > 0
+            ? DataJson.coffee.filter((item) => {
+                console.log(inputState);
+
+                if (stateArrayButton.includes(item.country)) {
+                  return item;
+                }
+              })
+            : DataJson.coffee
+        }
+      />
     </div>
   );
 }

@@ -4,12 +4,13 @@ import OurCoffee from "./Page/OurCoffee";
 import ForYourPleasure from "./Page/ForYourPleasure";
 import Layout from "./components/Layout";
 import OneCoffee from "./Page/OneCoffee";
+import ForYourPleasureCoffee from "./Page/ForYourPleasureCoffee";
 
 function App() {
   const invariant = createBrowserRouter([
     {
       path: "/",
-      element: <Layout />,
+      element: <Layout></Layout>,
       children: [
         {
           path: "/",
@@ -26,6 +27,10 @@ function App() {
         {
           path: "OurCoffee/:id",
           element: <OneCoffee />,
+        },
+        {
+          path: "ForYourPleasure/:id",
+          element: <ForYourPleasureCoffee />,
         },
       ],
     },
