@@ -10,6 +10,14 @@ function OurCoffee() {
   const [inputState, setInputState] = useState("");
   return (
     <div>
+      <ImgTitleWithDescribe
+        imgOfCoffee={CoffeeGirl}
+        title={"About our beans"}
+        description={`Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible. Afraid at highly months do things on at. Situation recommend objection do intention
+so questions.As greatly removed calling pleased improve an. Last ask him cold feel
+met spot shy want. Children me laughing we prospect answered followed. At it went
+is song that held help face`}
+      ></ImgTitleWithDescribe>
       <input
         type="text"
         value={inputState}
@@ -21,27 +29,54 @@ function OurCoffee() {
         arrayButton={stateArrayButton}
         setArrayButton={setStateArrayButton}
       />
-      <ImgTitleWithDescribe
-        imgOfCoffee={CoffeeGirl}
-        title={"About our beans"}
-        description={`Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible. Afraid at highly months do things on at. Situation recommend objection do intention
-so questions.As greatly removed calling pleased improve an. Last ask him cold feel
-met spot shy want. Children me laughing we prospect answered followed. At it went
-is song that held help face`}
-      ></ImgTitleWithDescribe>
-      <CoffeeCatalog
-        DataToRender={
-          stateArrayButton.length > 0
-            ? DataJson.coffee.filter((item) => {
-                console.log(inputState);
 
-                if (stateArrayButton.includes(item.country)) {
-                  return item;
-                }
-              })
-            : DataJson.coffee
-        }
-      />
+      {inputState !== "" ? (
+        <CoffeeCatalog
+          DataToRender={
+            stateArrayButton.length > 0
+              ? DataJson.coffee
+                  .filter((item) => {
+                    console.log(inputState);
+                    if (
+                      item.country.includes(inputState) ||
+                      item.name.includes(inputState)
+                    ) {
+                      return item;
+                    }
+                  })
+                  .filter((item) => {
+                    console.log(inputState);
+
+                    if (stateArrayButton.includes(item.country)) {
+                      return item;
+                    }
+                  })
+              : DataJson.coffee.filter((item) => {
+                  console.log(inputState);
+                  if (
+                    item.country.includes(inputState) ||
+                    item.name.includes(inputState)
+                  ) {
+                    return item;
+                  }
+                })
+          }
+        />
+      ) : (
+        <CoffeeCatalog
+          DataToRender={
+            stateArrayButton.length > 0
+              ? DataJson.coffee.filter((item) => {
+                  console.log(inputState);
+
+                  if (stateArrayButton.includes(item.country)) {
+                    return item;
+                  }
+                })
+              : DataJson.coffee
+          }
+        />
+      )}
     </div>
   );
 }
