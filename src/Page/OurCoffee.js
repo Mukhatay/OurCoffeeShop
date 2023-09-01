@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ImgTitleWithDescribe from "../components/ImgTitleWithDescribe";
 import CoffeeGirl from "../img/coffee_girl.jpg";
 import CoffeeCatalog from "../components/CoffeeCatalog";
@@ -9,13 +9,18 @@ function OurCoffee() {
   const [inputState, setInputState] = useState("");
   const [fetchingCoffee, setFetchingCoffee] = useState([]);
   const [loading, setLoading] = useState(true);
-  const fetchingData = () => {
-    fetch("http://localhost:4000/coffee")
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-  };
-  fetchingData();
+
+  useEffect(() => {
+    setLoading(true);
+    const fetchingData = () => {
+      fetch("http://localhost:4000/coffee")
+        .then((response) => response.json())
+        .then((result) => setFetchingCoffee(result))
+        .catch((error) => console.log("error", error));
+    };
+    fetchingData();
+    setLoading(false);
+  }, []);
   if (loading) {
     return <h1>Loading...</h1>;
   } else {
