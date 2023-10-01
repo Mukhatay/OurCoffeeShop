@@ -122,42 +122,48 @@ function ToDoList() {
         </button>
 
         <ul>
-          {listGoods.map((product) => {
-            return (
-              <div style={{ display: "flex" }}>
-                <li>{product.name}</li>
-                <button
-                  onClick={() => {
-                    setListGoods([
-                      ...listGoods.filter((pro) => pro.id !== product.id),
-                    ]);
-                  }}
-                >
-                  Delete
-                </button>
-                <button
-                  onClick={() =>
-                    setInputEdit({ name: product.name, id: product.id })
-                  }
-                >
-                  Edit
-                </button>
-              </div>
-            );
-          })}
+          {listGoods
+            .sort((a, b) => a.id - b.id)
+            .map((product) => {
+              return (
+                <div style={{ display: "flex" }}>
+                  <li>{product.name}</li>
+                  <button
+                    onClick={() => {
+                      setListGoods([
+                        ...listGoods.filter((pro) => pro.id !== product.id),
+                      ]);
+                    }}
+                  >
+                    Delete
+                  </button>
+                  <button
+                    onClick={() =>
+                      setInputEdit({ name: product.name, id: product.id })
+                    }
+                  >
+                    Edit
+                  </button>
+                </div>
+              );
+            })}
         </ul>
         <input
           placeholder="Edit goods"
           value={inputEdit.name}
           onChange={(e) => {
-            setInputEdit(e.target.value);
+            setInputEdit({ ...inputEdit, name: e.target.value });
           }}
         />
         <button
           onClick={() => {
             setListGoods([
-              ...listGoods,
-              { name: inputGood, id: listGoods.length + 1 },
+              ...listGoods.filter((el) => {
+                if (el.id !== inputEdit.id) {
+                  return el;
+                }
+              }),
+              inputEdit,
             ]);
           }}
         >
