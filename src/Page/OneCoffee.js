@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Logo from "../img/Beans_logo.png";
 import { useParams } from "react-router-dom";
-import DataJson from "../db.json";
 
 function OneCoffee() {
   const [oneFetchingCoffeeState, setOneFetchingCoffeeState] = useState({});
@@ -18,7 +17,7 @@ function OneCoffee() {
     };
     fetchOneCoffee();
     setLoading(false);
-  }, []);
+  }, [id]);
 
   // const { coffee } = DataJson;
   // const  = coffee.filter((item) => {
