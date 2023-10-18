@@ -9,10 +9,15 @@ import alertContext from "./context/alert/alertContext";
 import { useState } from "react";
 import MainProps from "./components/MainProps";
 import ToDoList from "./Page/ToDoList";
+import StarWars from "./Page/StarWars";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+import PokemonsLists from "./Page/PokemonsLists";
+import OnePokemons from "./Page/OnePokemons";
 function App() {
   const [lg, setLg] = useState("KZ");
   const [count, setCount] = useState(100);
   const [secondCount, setSecondCount] = useState(400);
+  const queryClient = new QueryClient();
   const invariant = createBrowserRouter([
     {
       path: "/",
@@ -42,18 +47,32 @@ function App() {
           path: "todo",
           element: <ToDoList />,
         },
+        {
+          path: "StarWars",
+          element: <StarWars />,
+        },
+        {
+          path: "Pokemons",
+          element: <PokemonsLists />,
+        },
+        {
+          path: "Pokemons/:id",
+          element: <OnePokemons />,
+        },
       ],
     },
   ]);
   return (
     <div className="App">
-      <alertContext.Provider value={[lg, setLg]}>
-        <accountContext.Provider
-          value={[count, setCount, secondCount, setSecondCount]}
-        >
-          <RouterProvider router={invariant} />
-        </accountContext.Provider>
-      </alertContext.Provider>
+      <QueryClientProvider client={queryClient}>
+        <alertContext.Provider value={[lg, setLg]}>
+          <accountContext.Provider
+            value={[count, setCount, secondCount, setSecondCount]}
+          >
+            <RouterProvider router={invariant} />
+          </accountContext.Provider>
+        </alertContext.Provider>
+      </QueryClientProvider>
     </div>
   );
 }
