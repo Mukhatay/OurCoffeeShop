@@ -15,7 +15,7 @@ function PokemonsLists() {
     return <h1>Error...</h1>;
   }
   if (pokemonsFetchLists.isSuccess && pokemonsFetchLists.data) {
-    console.log();
+    console.log(pokemonsFetchLists);
     return (
       <div>
         <ul>
@@ -24,7 +24,7 @@ function PokemonsLists() {
               <li>
                 {el.name}
 
-                <Link to={`/Pokemons/${el.url}`}>
+                <Link to={`/Pokemons/${el.url.split("/").slice(-2, -1)}`}>
                   <button>X</button>
                 </Link>
               </li>
