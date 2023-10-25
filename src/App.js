@@ -13,6 +13,7 @@ import StarWars from "./Page/StarWars";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import PokemonsLists from "./Page/PokemonsLists";
 import OnePokemons from "./Page/OnePokemons";
+import BlackJack from "./Page/BlackJack";
 function App() {
   const [lg, setLg] = useState("KZ");
   const [count, setCount] = useState(100);
@@ -58,6 +59,10 @@ function App() {
         {
           path: "Pokemons/:id",
           element: <OnePokemons />,
+        },
+        {
+          path: "BlackJack",
+          element: <BlackJack />,
         },
       ],
     },
