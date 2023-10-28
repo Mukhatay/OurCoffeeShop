@@ -5,8 +5,8 @@ function PlayerCards({ playerCardsToRender }) {
     <div>
       <h2>Player Cards: </h2>
       <ul>
-        {playerCardsToRender.map((el) => {
-          return <li>{el.name}</li>;
+        {playerCardsToRender.map((el, index) => {
+          return <li key={el.name}>{el.name}</li>;
         })}
       </ul>
       <h2>
