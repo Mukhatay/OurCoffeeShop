@@ -60,14 +60,12 @@ function BlackJack() {
     }, 0);
 
     if (playerPoints > 21) {
-      alert("You lose");
       setFinishGame(() => true);
     }
     if (casinoPoints > 21) {
-      alert("You win");
       setFinishGame(() => true);
     }
-    if (!finishGame && playerPoints > casinoPoints) {
+    if (casinoPoints < playerPoints && playerPoints < 22 && casinoPoints < 22) {
       addCasinoCard();
     }
   }, [playerCards, casinoCards]);
@@ -99,6 +97,20 @@ function BlackJack() {
         Casino card
       </button>
       <PlayerCards playerCardsToRender={playerCards} />
+      <div>
+        {finishGame ? (
+          <div>
+            {playerCards.reduce((prevSum, currentValue) => {
+              return prevSum + currentValue.points;
+            }, 0) < 22 ? (
+              <h2 style={{ color: "green" }}>Мы победили</h2>
+            ) : (
+              <h2 style={{ color: "red" }}>Мы проиграли</h2>
+            )}
+          </div>
+        ) : null}
+      </div>
+
       <CasinoCards casinoCardsToRender={casinoCards} />
     </div>
   );
